@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reconocimiento de escala tonal</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div class="contenedor">
+  <h1>Reconocimiento de escala tonal</h1>
+  <p class="sub">Analiza un sonido con la Web Audio API. Un Web Worker calcula la FFT y la autocorrelacion para encontrar la nota que suena y estimar la escala (tonalidad) a la que pertenecen las notas.</p>
+
+  <div class="caja">
+    <div class="fila">
+      <button id="btnMic">Usar microfono</button>
+      <span class="sep">o</span>
+      <select id="selPrueba">
+        <option value="60,mayor">Escala de prueba: Do mayor</option>
+        <option value="67,mayor">Escala de prueba: Sol mayor</option>
+        <option value="62,mayor">Escala de prueba: Re mayor</option>
+        <option value="65,mayor">Escala de prueba: Fa mayor</option>
+        <option value="57,menor">Escala de prueba: La menor</option>
+        <option value="64,menor">Escala de prueba: Mi menor</option>
+        <option value="62,menor">Escala de prueba: Re menor</option>
+      </select>
+      <button id="btnPrueba">Reproducir</button>
+      <button id="btnDetener" disabled>Detener</button>
+    </div>
+    <div class="fila">
+      <label for="archivo">Cargar archivo de audio (mp3, wav, ogg):</label>
+      <input id="archivo" type="file" accept="audio/*">
+      <button id="btnEscuchar" disabled>Escuchar archivo</button>
+    </div>
+    <div class="fila">
+      <button id="btnReiniciar">Reiniciar analisis</button>
+      <span id="estado" class="estado">Detenido</span>
+    </div>
+  </div>
+
+  <div class="resultados">
+    <div class="caja">
+      <div class="titulo">Nota actual (autocorrelacion)</div>
+      <div class="grande" id="nota">-</div>
+      <div id="frecuencia">- Hz</div>
+      <div class="afinacion"><div id="aguja"></div></div>
+      <div class="pequeno" id="claridad">claridad: -</div>
+    </div>
+    <div class="caja">
+      <div class="titulo">Escala detectada</div>
+      <div class="grande" id="escala">-</div>
+      <div id="notasEscala">-</div>
+      <div class="pequeno" id="aviso"></div>
+      <table>
+        <tr><th>Candidata</th><th>Correlacion</th></tr>
+        <tr><td id="c1">-</td><td id="r1">-</td></tr>
+        <tr><td id="c2">-</td><td id="r2">-</td></tr>
+        <tr><td id="c3">-</td><td id="r3">-</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="caja">
+    <div class="titulo">Perfil de notas acumulado (12 clases)</div>
+    <canvas id="cvPerfil" width="860" height="200"></canvas>
+    <div class="leyenda">Las barras oscuras son las notas que pertenecen a la escala detectada.</div>
+  </div>
+
+  <div class="caja">
+    <div class="titulo">Espectro de magnitud (FFT, 0 a 2000 Hz)</div>
+    <canvas id="cvEspectro" width="860" height="180"></canvas>
+  </div>
+
+  <div class="caja pequeno" id="info">Worker: sin datos todavia.</div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

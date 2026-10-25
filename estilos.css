@@ -1,0 +1,24 @@
+body { font-family: Arial, sans-serif; margin: 0; background: #f2f2f2; color: #222; }
+.contenedor { max-width: 900px; margin: 0 auto; padding: 16px; }
+h1 { font-size: 22px; margin: 8px 0 4px; }
+p.sub { margin: 0 0 16px; color: #555; font-size: 14px; }
+.caja { background: #fff; border: 1px solid #ccc; padding: 14px; margin-bottom: 14px; }
+.fila { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+.fila:last-child { margin-bottom: 0; }
+.sep { color: #777; }
+label { font-size: 14px; }
+button, select { padding: 7px 14px; font-size: 14px; cursor: pointer; }
+button:disabled { cursor: default; }
+.estado { font-size: 13px; color: #555; margin-left: auto; }
+.resultados { display: flex; gap: 14px; flex-wrap: wrap; }
+.resultados .caja { flex: 1; min-width: 260px; }
+.titulo { font-weight: bold; font-size: 14px; margin-bottom: 6px; }
+.grande { font-size: 34px; font-weight: bold; margin: 4px 0; }
+.pequeno { font-size: 12px; color: #555; }
+.afinacion { position: relative; height: 10px; background: linear-gradient(to right, #e6b0aa, #d5f5e3 45%, #d5f5e3 55%, #e6b0aa); margin: 8px 0 4px; }
+#aguja { position: absolute; top: -3px; left: 50%; width: 3px; height: 16px; background: #222; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; margin-top: 8px; }
+td, th { border: 1px solid #ddd; padding: 5px 8px; text-align: left; }
+th { background: #eee; }
+canvas { width: 100%; height: auto; border: 1px solid #bbb; background: #fafafa; }
+.leyenda { font-size: 12px; color: #555; margin-top: 4px; }
